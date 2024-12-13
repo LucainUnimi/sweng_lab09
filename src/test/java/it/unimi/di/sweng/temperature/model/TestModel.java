@@ -10,7 +10,6 @@ import org.junit.jupiter.api.Test;
 
 public class TestModel {
 
-  /* TODO scommentare
   @Test
   public void testSetterGetter() {
     Model model = new TemperatureModel();
