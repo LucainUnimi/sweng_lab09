@@ -21,7 +21,6 @@ public class TestModel {
     assertThat(model.getTemp()).isCloseTo(42.42, within(0.01));
   }
 
-  /* TODO scommentare
   @Test
   public void testNotifyObservers() {
     Observer<Double> obs =  mock();
@@ -38,7 +37,6 @@ public class TestModel {
     verify(obs1).update(model, 42.42);
   }
 
-  /* TODO scommentare
   @Test
   public void testNotifyObserversOnlyIfChanged() {
     Observer<Double> obs =  mock(Observer.class);
@@ -56,5 +54,5 @@ public class TestModel {
     verify(obs, times(2)).update(eq(model), any());
     verify(obs1, times(2)).update(eq(model), any());
   }
-  /**/
+
 }
