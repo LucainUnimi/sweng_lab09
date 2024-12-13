@@ -23,11 +23,11 @@ public class TemperaturePresenter implements Presenter, Observer<Double> {
 
     @Override
     public void action(@NotNull String text) {
-        //model.setTemp(strategy.convertToCelsius(Double.parseDouble(text)));
+        model.setTemp(strategy.convertToCelsius(Double.parseDouble(text)));
     }
 
     @Override
     public void update(@NotNull Observable<Double> subject, @NotNull Double state) {
-        //view.setValue(state.toString());
+        view.setValue(state.toString());
     }
 }
