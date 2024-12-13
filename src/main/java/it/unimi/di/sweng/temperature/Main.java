@@ -1,6 +1,10 @@
 package it.unimi.di.sweng.temperature;
 
 import it.unimi.di.sweng.temperature.model.Model;
+import it.unimi.di.sweng.temperature.model.TemperatureModel;
+import it.unimi.di.sweng.temperature.presenter.FahrenheitStrategy;
+import it.unimi.di.sweng.temperature.presenter.Presenter;
+import it.unimi.di.sweng.temperature.presenter.TemperaturePresenter;
 import it.unimi.di.sweng.temperature.view.MyTextView;
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -34,12 +38,22 @@ public class Main extends Application {
     gridPane.add(fahrenheitField, 1, 1);
     gridPane.add(celsiusField2, 1, 2);
 
-    Model model;
+    TemperatureModel model;
 
-    //TODO: modificare e completare il seguente codice per istanziare e collegare i vari componenti
+    model = new TemperatureModel();
 
-    // scommentare dopo aver creato il model
-    //model.notifyObservers();
+    TemperaturePresenter presenter = new TemperaturePresenter(celsiusField, model);
+    celsiusField.addHandlers(presenter);
+    model.addObserver(presenter);
+    presenter = new TemperaturePresenter(fahrenheitField, model);
+    presenter.setStategy(FahrenheitStrategy.getInstance());
+    model.addObserver(presenter);
+    fahrenheitField.addHandlers(presenter);
+    presenter = new TemperaturePresenter(celsiusField2, model);
+    celsiusField2.addHandlers(presenter);
+    model.addObserver(presenter);
+
+
 
     Scene scene = new Scene(gridPane);
     stage.setScene(scene);
