@@ -10,11 +10,11 @@ public class CelsiusStrategy implements ScaleStrategy {
 
     @Override
     public double convertFromCelsius(double temperature) {
-        return 0;
+        return temperature;
     }
 
     @Override
     public double convertToCelsius(double temperature) {
-        return 0;
+        return temperature;
     }
 }
