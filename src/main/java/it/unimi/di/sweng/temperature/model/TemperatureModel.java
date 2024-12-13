@@ -19,7 +19,7 @@ public class TemperatureModel implements Model, Observable<Double> {
 
     @Override
     public void setTemp(double temp) {
-        if (this.temperature != temp) {
+        if (this.temperature - temp > 0.01 || this.temperature - temp < -0.01) {
             this.temperature = temp;
             notifyObservers();
         }
