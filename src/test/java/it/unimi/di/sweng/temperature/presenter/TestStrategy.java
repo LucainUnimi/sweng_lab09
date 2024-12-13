@@ -1,7 +1,5 @@
-package it.unimi.di.sweng.temperature.model;
+package it.unimi.di.sweng.temperature.presenter;
 
-import it.unimi.di.sweng.temperature.presenter.CelsiusStrategy;
-import it.unimi.di.sweng.temperature.presenter.ScaleStrategy;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Timeout;
 
@@ -13,6 +11,14 @@ public class TestStrategy {
     @Test
     void testCelsiusStrategy() {
         ScaleStrategy strategy = CelsiusStrategy.getInstance();
+
+        assertThat(strategy.convertFromCelsius(42)).isCloseTo(42, within(0.0001));
+        assertThat(strategy.convertToCelsius(42)).isCloseTo(42, within(0.0001));
+    }
+
+    @Test
+    void testFahrenheitStrategy() {
+        ScaleStrategy strategy = FahrenheitStrategy.getInstance();
 
         assertThat(strategy.convertFromCelsius(42)).isCloseTo(42, within(0.0001));
         assertThat(strategy.convertToCelsius(42)).isCloseTo(42, within(0.0001));
