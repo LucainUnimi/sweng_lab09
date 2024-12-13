@@ -10,11 +10,11 @@ public class FahrenheitStrategy implements ScaleStrategy {
 
     @Override
     public double convertFromCelsius(double temperature) {
-        return 0;
+        return (temperature * 9 / 5) + 32;
     }
 
     @Override
     public double convertToCelsius(double temperature) {
-        return 0;
+        return (temperature - 32) * 5 / 9;
     }
 }

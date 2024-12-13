@@ -20,7 +20,7 @@ public class TestStrategy {
     void testFahrenheitStrategy() {
         ScaleStrategy strategy = FahrenheitStrategy.getInstance();
 
-        assertThat(strategy.convertFromCelsius(42)).isCloseTo(42, within(0.0001));
-        assertThat(strategy.convertToCelsius(42)).isCloseTo(42, within(0.0001));
+        assertThat(strategy.convertFromCelsius(200)).isCloseTo(392, within(0.0001));
+        assertThat(strategy.convertToCelsius(56)).isCloseTo(13.3333333, within(0.0001));
     }
 }
