@@ -12,6 +12,6 @@ public class TemperaturePresenter implements Presenter {
 
     @Override
     public void action(@NotNull String text) {
-        //strategy.convertToCelsius(Double.parseDouble(text));
+        strategy.convertToCelsius(Double.parseDouble(text));
     }
 }
