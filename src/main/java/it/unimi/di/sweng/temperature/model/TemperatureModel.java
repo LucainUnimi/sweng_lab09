@@ -19,21 +19,24 @@ public class TemperatureModel implements Model, Observable<Double> {
 
     @Override
     public void setTemp(double temp) {
-        this.temperature = temp;
+        if (this.temperature != temp) {
+            this.temperature = temp;
+            notifyObservers();
+        }
     }
 
     @Override
     public void notifyObservers() {
-        //observers.forEach(o -> o.update(this, this.temperature));
+        observers.forEach(o -> o.update(this, this.temperature));
     }
 
     @Override
     public void addObserver(@NotNull Observer<Double> obs) {
-        //observers.add(obs);
+        observers.add(obs);
     }
 
     @Override
     public @NotNull Double getState() {
-        return 0.0;
+        return getTemp();
     }
 }
